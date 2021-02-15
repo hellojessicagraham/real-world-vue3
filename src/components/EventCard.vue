@@ -1,7 +1,12 @@
 <template>
   <div class="event-card">
-    <span> @ {{ event.time }} on {{ event.date }} </span>
-    <h4>{{ event.title }}</h4>
+    <router-link 
+      class="event-card__link" 
+      :to="{ name: 'EventDetails', params: { id: event.id } }"
+    >
+      <span> @ {{ event.time }} on {{ event.date }} </span>
+      <h4>{{ event.title }}</h4>
+    </router-link>
   </div>
 </template>
 
@@ -22,6 +27,11 @@ export default {
     cursor: pointer;
     border: 1px solid #39495c;
     margin-bottom: 18px;
+  }
+
+  .event-card__link {
+    color: #2c3e50;
+    text-decoration: none;
   }
 
   .event-card:hover {
